@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+.expense-tracker {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 10px auto;
+  }
+  
+  .container {
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+  }
+
+  .profile-photo{
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  h1 {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: #333333;
+  }
+  .sign-out {
+    padding: 10px;
+    background-color: #333333;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .sign-out:hover {
+    cursor: pointer;
+  }
+  
+  .balance {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .balance h2 {
+    font-size: 36px;
+    margin: 10px 0;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .summary {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .summary div {
+    width: 45%;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
+  }
+  
+  .summary h4 {
+    margin-bottom: 5px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .income p {
+    color: green;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .expenses p {
+    color: red;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .add-transaction {
+    margin-top: 20px;
+  }
+  
+  .add-transaction input {
+    display: block;
+    text-align: center;
+    width: 90%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px auto;
+  }
+  
+  .add-transaction input[type="radio"] {
+    display:inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+  
+  .add-transaction label {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .add-transaction button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #333333;
+    color: #ffffff;
+  }
+
+  .transactions {
+    margin-top: 30px;
+    text-align: center;
+  }
+  .transactions h3 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+  
+  .transactions h3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 2px;
+    background: black;
+    transform: translateX(40%);
+  }
+  .transactions ul {
+    list-style-type: none;
+  }
+  
+  .transactions li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .transactions li h4 {
+    font-family: 'Poppins', sans-serif;
+     margin-right : auto; 
+     margin-left : auto; 
+     width : fit-content; 
+     text-align : center; 
+     font-size : large; 
+     font-weight : bold; 
+     color : black;
+  }
+  .transactions li p{
+      font-family: 'Poppins', sans-serif;
+      margin-right : auto; 
+      margin-left : auto; 
+      width : fit-content; 
+      text-align : center; 
+      font-size : medium; 
+      font-weight : normal; 
+  }
+
+/* RESPONSIVENESS */
+  @media (max-width:600px) {  
+    .expense-tracker{
+    max-width :90%;
+    /* margin: 10px auto; */
+
+    }
+    .container{
+    padding-left:auto ;
+    padding-right:auto ;
+    }
+    .summary{
+    flex-direction : column ; 
+    align-items:center ; 
+    }
+    .summary div{
+    width :80% ;
+    margin-bottom :10px ;
+    }
+    .transactions ul{
+    padding-left:auto ;
+    padding-right:auto ;
+    }
+    .transactions li h4{
+    font-size:18px;
+    }
+    .transactions li p{
+    font-size:18px ;
+    }
+    }
