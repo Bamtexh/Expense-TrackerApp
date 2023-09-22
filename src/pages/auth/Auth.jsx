@@ -3,6 +3,8 @@ import { auth, provider } from "../../config/firebase-config";
 import { signInWithPopup } from "firebase/auth";
 import { useNavigate, Navigate } from "react-router-dom";
 import { useGetUserInfo } from "../../hooks/useGetUserInfo";
+import welcome from './welcome.png'
+import googleIcon from './google-icon.png'
 import "./styles.css";
 
 export const Auth = () => {
@@ -34,7 +36,7 @@ export const Auth = () => {
         </div>
         <button className="sign-up" onClick={signInWithGoogle}>
           <img
-            src="src\pages\auth\google-icon.png"
+            src={googleIcon}
             className="google-icon"
             alt="google icon"
           />{" "}
@@ -43,7 +45,7 @@ export const Auth = () => {
       </div>
       <img
         className="image"
-        src="src\pages\auth\welcome.png"
+        src={welcome}
         alt="welcome illustration image"
       />
     </div>
