@@ -24,6 +24,7 @@
   }
   .sign-out {
     padding: 10px;
+    margin:5px;
     background-color: #333333;
     color: #ffffff;
     border: none;
@@ -156,6 +157,17 @@
       font-size : medium; 
       font-weight : normal; 
   }
+  .delete-button {   
+    color:white;
+    background-color: red;
+    padding: 0.5rem;
+    margin-right: 3rem;
+    border-radius: 50%;
+    border: none; 
+  }
+  .delete-button:hover{
+    cursor:pointer;
+  }
 
 /* RESPONSIVENESS */
   @media (max-width:600px) {  
@@ -182,8 +194,15 @@
     }
     .transactions li h4{
     font-size:18px;
+    margin-right:5px;
     }
     .transactions li p{
     font-size:18px ;
+    margin-right: 3rem;
+    margin-left:1rem;
+    }
+    .delete-button{
+      margin-right: 3rem;
+      margin-left:1rem;
     }
     }
