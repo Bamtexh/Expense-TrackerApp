@@ -5,10 +5,11 @@ import { useGetUserInfo } from "../../hooks/useGetUserInfo";
 import { signOut } from "firebase/auth";
 import { auth } from "../../config/firebase-config";
 import { db } from "../../config/firebase-config";
-import { doc, deleteDoc } from "firebase/firestore";
+import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import { MdDeleteForever } from "react-icons/md";
+import { CiEdit } from "react-icons/ci";
 import "./styles.css";
-
 
 export const ExpenseTracker = () => {
   const { addTransaction } = useAddTransaction();
@@ -18,6 +19,7 @@ export const ExpenseTracker = () => {
   const [description, setDescription] = useState("");
   const [transactionAmount, setTransactionAmount] = useState();
   const [transactionType, setTransactionType] = useState("expense");
+  const [editingTransactions, setEditingTransactions] = useState(null);
 
   const { balance, income, expenses } = transactionTotal;
   const onSubmit = (e) => {
@@ -39,6 +41,32 @@ export const ExpenseTracker = () => {
       console.error("Error deleting transaction:", error);
     }
   };
+
+  const handleEditTransactions = async () => {
+    try {
+      await updateDoc(doc(db, "transactions", editingTransactions.id), {
+        description,
+        transactionAmount,
+        transactionType,
+      });
+      // Clear form fields
+      setDescription("");
+      setTransactionAmount("");
+      setTransactionType("expense");
+      console.log("Transaction updated successfully!");
+      setEditingTransactions(null);
+    } catch (error) {
+      console.error("Error updating transaction:", error);
+    }
+  };
+
+  const openEditForm = (transaction) => {
+    setEditingTransactions(transaction);
+    setDescription(transaction.description);
+    setTransactionAmount(transaction.transactionAmount);
+    setTransactionType(transaction.transactionType);
+  };
+
   const signUserOut = async () => {
     try {
       await signOut(auth);
@@ -122,16 +150,40 @@ export const ExpenseTracker = () => {
             return (
               <li key={index}>
                 <h4> {description} </h4>
-                <p>&#8358;{transactionAmount} &#x2022;
-                  <label style={{
+                <p>
+                  &#8358;{transactionAmount}
+                  <br />
+                  &#x2022;
+                  <label
+                    style={{
                       color: transactionType === "expense" ? "red" : "green",
                     }}
                   >
                     {transactionType}
                   </label>
                 </p>
-                <button className="delete-button" onClick={() => handleDeleteTransaction(transaction.id)}>
-                  X
+                {editingTransactions?.id === transaction.id ? (
+                  <div>
+                    <button
+                      className="save-btn"
+                      onClick={handleEditTransactions}
+                    >
+                      Save
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    className="edit-btn"
+                    onClick={() => openEditForm(transaction)}
+                  >
+                    <CiEdit />
+                  </button>
+                )}
+                <button
+                  className="delete-btn"
+                  onClick={() => handleDeleteTransaction(transaction.id)}
+                >
+                  <MdDeleteForever />
                 </button>
               </li>
             );

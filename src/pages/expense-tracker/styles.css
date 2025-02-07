@@ -107,8 +107,16 @@
     color: #ffffff;
     cursor: pointer;
   }
-
+  input{
+  justify-content: center;
+  border: none;
+  margin-left: 15px;
+  }
+  input:hover{
+  background-color: rgb(225, 225, 225);
+  }
   .transactions {
+    padding: 0;
     margin-top: 30px;
     text-align: center;
   }
@@ -130,6 +138,7 @@
   }
   .transactions ul {
     list-style-type: none;
+    justify-content: center;
   }
   
   .transactions li {
@@ -144,8 +153,7 @@
      margin-left : auto; 
      width : fit-content; 
      text-align : center; 
-     font-size : large; 
-     font-weight : bold; 
+     font-size : small; 
      color : black;
   }
   .transactions li p{
@@ -154,20 +162,31 @@
       margin-left : auto; 
       width : fit-content; 
       text-align : center; 
-      font-size : medium; 
+      font-size : small; 
       font-weight : normal; 
   }
-  .delete-button {   
-    color:white;
-    background-color: red;
+  .delete-btn {   
+    color: red;
+    background-color: white;
     padding: 0.5rem;
     margin-right: 3rem;
-    border-radius: 50%;
     border: none; 
   }
-  .delete-button:hover{
+  .delete-btn:hover{
     cursor:pointer;
   }
+  .edit-btn{
+    color: green;
+    background-color: white;
+    cursor: pointer;
+    border: none;
+    padding: 0.5rem;
+    margin-right:10px ;
+  }
+  .save-btn{
+    margin-right: 10px;
+  }
+ 
 
 /* RESPONSIVENESS */
   @media (max-width:600px) {  
@@ -175,6 +194,9 @@
     max-width :90%;
     /* margin: 10px auto; */
 
+    }
+    input{
+      margin-left: 0;
     }
     .container{
     padding-left:auto ;
@@ -188,20 +210,24 @@
     width :80% ;
     margin-bottom :10px ;
     }
+    .transactions{
+      padding-right:0;
+    }
     .transactions ul{
     padding-left:auto ;
     padding-right:auto ;
     }
     .transactions li h4{
-    font-size:18px;
+    font-size:13px;
     margin-right:5px;
     }
     .transactions li p{
-    font-size:18px ;
+      max-width: fit-content;
+    font-size:14px ;
     margin-right: 3rem;
     margin-left:1rem;
     }
-    .delete-button{
+    .delete-btn{
       margin-right: 3rem;
       margin-left:1rem;
     }
